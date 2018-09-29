@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/bipoegg/seo-detector/issues"
   },
-  "homepage": "https://github.com/bipoegg/seo-detector#readme"
+  "homepage": "https://github.com/bipoegg/seo-detector#readme",
+  "dependencies": {
+    "underscore": "^1.9.1"
+  }
 }
