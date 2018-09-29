@@ -1,0 +1,23 @@
+{
+  "name": "seo-detector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bipoegg/seo-detector.git"
+  },
+  "keywords": [
+    "seo",
+    "detector"
+  ],
+  "author": "bipo <bipoegg@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bipoegg/seo-detector/issues"
+  },
+  "homepage": "https://github.com/bipoegg/seo-detector#readme"
+}
