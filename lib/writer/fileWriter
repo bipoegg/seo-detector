@@ -1,0 +1,25 @@
+'use strict'
+
+var Fs = require('fs');
+var BaseWriter = require('./baseWriter');
+
+class fileWriter extends BaseWriter {
+  constructor (path) {
+    if (!path) {
+      throw new Error('path not exist');
+    } else {
+      super();
+      this.path = path;
+    }
+  };
+
+  async write (data) {
+    await Fs.writeFile(this.path, data, 'utf8', function (err) {
+      if (err) {
+        console.log('write file error');
+      }
+    });
+  }
+}
+
+module.exports = fileWriter;
