@@ -1,18 +1,42 @@
 'use strict'
 
-var SeoDetector = require('./../lib/detector');
+const {
+  detector,
+  ReaderType,
+  WriteType,
+} = require('./../lib/detector');
 
-var inputOption = {
-  type: 'FILE',
-  path: __dirname + '/exampleInput.html'
+var fileOption = {
+  input: {
+    type : ReaderType.FILE,
+    path: __dirname + '/exampleInput.html'
+  },
+  output: {
+    type: WriteType.FILE,
+    path: __dirname + '/exampleOutput.html'
+  }
 };
 
-var outputOption = {
-  type: 'FILE',
-  path: __dirname + '/exampleOutput.html'
+var streamOption = {
+  input: {
+    type : ReaderType.STREAM,
+    path: __dirname + '/exampleInput.html'
+  },
+  output: {
+    type: WriteType.STREAM,
+    path: __dirname + '/exampleOutput.html'
+  }
 };
 
-var seoDetector = new SeoDetector(inputOption, outputOption);
+var consoleOption = {
+  output: {
+    type: WriteType.CONSOLE,
+    path: ''
+  }
+};
+
+
+var seoDetector = new detector(streamOption.input, streamOption.output);
 
 seoDetector
   .detect()
