@@ -53,6 +53,8 @@ ruleOptions.push({name: 'customized3', engine: SupportedRuleEngine.tagExistenceW
                   param: {root: '', tag:'foo', attr:'name', value:'seo'}});
 ruleOptions.push({name: 'customized4', engine: SupportedRuleEngine.tagLimitCount,
                   param: {root: '', tag:'foo', limit:1}});
+ruleOptions.push({name: 'customized5', engine: 'bbb',
+                  param: {root: '', tag:'foo'}});
 
 // customized rule with customized rule engine
 ruleOptions.push({name: 'customizedRuleEngine', ruleFn : $ => {
