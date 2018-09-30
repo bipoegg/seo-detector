@@ -5,6 +5,7 @@ const {
   ReaderType,
   WriteType,
   DefaultRule,
+  SupportedRuleEngine
 } = require('./../lib/detector');
 
 var fileOption = {
@@ -42,6 +43,10 @@ for (var i in DefaultRule) {
   ruleOptions.push(DefaultRule[i]);
 }
 
+// TODO: it needs detailed document, or need to extract these part as class to export.
+// customized parameter with supported rule engine
+ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAttrCount,
+                  param: {root: '', tag:'foo', attr:'123'}});
 var seoDetector = new detector(streamOption.input, consoleOption.output, ruleOptions);
 
 seoDetector
