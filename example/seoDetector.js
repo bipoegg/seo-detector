@@ -49,6 +49,8 @@ ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAtt
                   param: {root: '', tag:'foo', attr:'123'}});
 ruleOptions.push({name: 'customized2', engine: SupportedRuleEngine.tagExistence,
                   param: {root: '', tag:'foo'}});
+ruleOptions.push({name: 'customized3', engine: SupportedRuleEngine.tagExistenceWithAttrValue,
+                  param: {root: '', tag:'foo', attr:'name', value:'seo'}});
 
 // customized rule with customized rule engine
 ruleOptions.push({name: 'customizedRuleEngine', ruleFn : $ => {
