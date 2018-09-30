@@ -1,0 +1,31 @@
+{
+  "name": "seo-detector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bipoegg/seo-detector.git"
+  },
+  "keywords": [
+    "seo",
+    "detector"
+  ],
+  "author": "bipo <bipoegg@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bipoegg/seo-detector/issues"
+  },
+  "homepage": "https://github.com/bipoegg/seo-detector#readme",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "5.0.1"
+  }
+}
