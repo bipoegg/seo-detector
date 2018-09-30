@@ -47,6 +47,8 @@ for (var i in DefaultRule) {
 // customized parameter with supported rule engine
 ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAttrCount,
                   param: {root: '', tag:'foo', attr:'123'}});
+ruleOptions.push({name: 'customized2', engine: SupportedRuleEngine.tagExistence,
+                  param: {root: '', tag:'foo'}});
 
 // customized rule with customized rule engine
 ruleOptions.push({name: 'customizedRuleEngine', ruleFn : $ => {
