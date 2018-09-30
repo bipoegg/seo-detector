@@ -1,4 +1,4 @@
-'use restrict'
+'use strict'
 
 var assert = require('chai').assert;
 var StreamReader = require('../../lib/reader/streamReader');

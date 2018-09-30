@@ -1,4 +1,4 @@
-'use restrict'
+'use strict'
 
 var assert = require('chai').assert;
 var WriterType = require('../../lib/writer/writerType');
