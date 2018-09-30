@@ -47,14 +47,6 @@ for (var i in DefaultRule) {
 // customized parameter with supported rule engine
 ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAttrCount,
                   param: {root: '', tag:'foo', attr:'123'}});
-ruleOptions.push({name: 'customized2', engine: SupportedRuleEngine.tagExistence,
-                  param: {root: '', tag:'foo'}});
-ruleOptions.push({name: 'customized3', engine: SupportedRuleEngine.tagExistenceWithAttrValue,
-                  param: {root: '', tag:'foo', attr:'name', value:'seo'}});
-ruleOptions.push({name: 'customized4', engine: SupportedRuleEngine.tagLimitCount,
-                  param: {root: '', tag:'foo', limit:1}});
-ruleOptions.push({name: 'customized5', engine: 'bbb',
-                  param: {root: '', tag:'foo'}});
 
 // customized rule with customized rule engine
 ruleOptions.push({name: 'customizedRuleEngine', ruleFn : $ => {
