@@ -4,6 +4,7 @@ const {
   detector,
   ReaderType,
   WriteType,
+  DefaultRule,
 } = require('./../lib/detector');
 
 var fileOption = {
@@ -35,8 +36,13 @@ var consoleOption = {
   }
 };
 
+var ruleOptions = [];
+// choose to use what kinds of default rule.
+for (var i in DefaultRule) {
+  ruleOptions.push(DefaultRule[i]);
+}
 
-var seoDetector = new detector(streamOption.input, streamOption.output);
+var seoDetector = new detector(streamOption.input, consoleOption.output, ruleOptions);
 
 seoDetector
   .detect()
