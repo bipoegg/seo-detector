@@ -78,7 +78,7 @@ Node.js 8.9.1 or greater
 6. Detect if there are more than 15 `<strong>` tag in HTML <br />
 7. Detect if a HTML have more than one `<h1>` tag<br />
 
-### supported rule format
+### Supported rule format
 ```js
 ruleOption = {
     name: 'defaultRuleName', // for default rule usage.
@@ -186,7 +186,7 @@ const seoDetector = new detector(inputOption, outputOption, ruleOptions);
 // skip pre-defined rules if it doesn't add into ruleOptions
 ```
 
-#### detect() && writeResult()
+#### Detect && WriteResult
 ```js
 seoDetector
   .detect()
