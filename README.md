@@ -78,6 +78,21 @@ Node.js 8.9.1 or greater
 6. Detect if there are more than 15 `<strong>` tag in HTML <br />
 7. Detect if a HTML have more than one `<h1>` tag<br />
 
+### supported rule format
+```js
+ruleOption = {
+    name: 'defaultRuleName', // for default rule usage.
+    engine: 'supportedRuleEngine', // for customized rule usage
+    param: {
+        root: 'head',
+        tag: 'meta',
+        attr: 'name',
+        value: 'descriptions',
+        limit: 0;
+    },
+    ruleFn: $ => {} // for new rule engine usage.
+}
+```
 
 ### Default rule option
 ```js
