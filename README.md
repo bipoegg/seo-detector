@@ -18,8 +18,12 @@ var fileOption = {
 };
 
 var ruleOptions = [];
+// Filter default rule with index.
 for (var i in DefaultRule) {
-  ruleOptions.push(DefaultRule[i]);
+  var index = Object.keys(DefaultRule).indexOf(i);
+  if (index >= 0) {
+    ruleOptions.push({name: i});
+  }
 }
 
 ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAttrCount,
@@ -82,7 +86,10 @@ const { DefaultRule } = require('seo-detector-demo');
 
 var ruleOptions = [];
 for (var i in DefaultRule) {
-  ruleOptions.push(DefaultRule[i]);
+  var index = Object.keys(DefaultRule).indexOf(i);
+  if (index >= 0) {
+    ruleOptions.push({name: i});
+  }
 }
 ```
 
