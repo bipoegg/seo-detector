@@ -10,6 +10,34 @@ describe('tagWithoutAttrCount method', function () {
   var tag = 'img';
   var attr = 'alt';
 
+  it('input tag is not valid', function () {
+    const dom = cheerio.load(
+      `<html>
+          <head></head>
+          <body>
+              <img src="." alt="seo desc" />
+          </body>
+      </html>`
+    );
+
+    var ruleFn = RuleDetectLogic.detectTagWithoutAttributeCount(rootTag, '', attr);
+    assert.equal(ruleFn(dom), '');
+  });
+
+  it('input attr is not valid', function () {
+    const dom = cheerio.load(
+      `<html>
+          <head></head>
+          <body>
+              <img src="." alt="seo desc" />
+          </body>
+      </html>`
+    );
+
+    var ruleFn = RuleDetectLogic.detectTagWithoutAttributeCount(rootTag, tag, '');
+    assert.equal(ruleFn(dom), '');
+  });
+
   it('input tag has specific attr', function () {
     const dom = cheerio.load(
       `<html>

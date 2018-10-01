@@ -6,29 +6,36 @@ var RuleDetectLogic = require('../../lib/rule/ruleDetectLogic');
 
 describe('tagLimitCount method', function () {
 
-  it('tag is empty ', function () {
-    const dom = cheerio.load(
-      `<html>
-          <head></head>
-          <body>
-          </body>
-      </html>`
-    );
-
-    var ruleFn = RuleDetectLogic.detectLimitOfTagCount('', '', 1);
-    assert.equal(ruleFn(dom), '');
-  });
-
   var rootTag = '';
   var tag = 'h1';
   var limit = 1;
+
+  it('input tag is empty', function () {
+    const dom = cheerio.load(
+      `<html>
+          <head></head>
+      </html>`
+    );
+
+    var ruleFn = RuleDetectLogic.detectLimitOfTagCount(rootTag, '', limit);
+    assert.equal(ruleFn(dom), '');
+  });
+
+  it('input limit is negative', function () {
+    const dom = cheerio.load(
+      `<html>
+          <head></head>
+      </html>`
+    );
+
+    var ruleFn = RuleDetectLogic.detectLimitOfTagCount(rootTag, tag, -1);
+    assert.equal(ruleFn(dom), '');
+  });
 
   it('input tag has 0 h1 ', function () {
     const dom = cheerio.load(
       `<html>
           <head></head>
-          <body>
-          </body>
       </html>`
     );
 
