@@ -38,9 +38,13 @@ var consoleOption = {
 };
 
 var ruleOptions = [];
-// choose to use what kinds of default rule.
 for (var i in DefaultRule) {
-  ruleOptions.push(DefaultRule[i]);
+  var index = Object.keys(DefaultRule).indexOf(i);
+
+  // Can filter index of default rule.
+  if (index >= 0) {
+    ruleOptions.push({name: i});
+  }
 }
 
 // TODO: it needs detailed document, or need to extract these part as class to export.

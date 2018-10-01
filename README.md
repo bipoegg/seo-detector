@@ -4,7 +4,13 @@
 <br />
 
 ```js
-const { detector, ReaderType, WriteType, DefaultRule, SupportedRuleEngine } = require('seo-detector-demo');
+const {
+ detector,
+ ReaderType,
+ WriteType,
+ DefaultRule,
+ SupportedRuleEngine
+} = require('seo-detector-demo');
 
 var fileOption = {
   input: {
@@ -18,20 +24,27 @@ var fileOption = {
 };
 
 var ruleOptions = [];
+// Filter default rule with index.
 for (var i in DefaultRule) {
-  ruleOptions.push(DefaultRule[i]);
+  var index = Object.keys(DefaultRule).indexOf(i);
+  if (index >= 0) {
+    ruleOptions.push({name: i});
+  }
 }
 
-ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAttrCount,
+// customized rule with supported rule engine
+ruleOptions.push({name: 'customized1',
+                  engine: SupportedRuleEngine.tagWithoutAttrCount,
                   param: {root: '', tag:'foo', attr:'123'}});
-ruleOptions.push({name: 'customized2', engine: SupportedRuleEngine.tagExistence,
+ruleOptions.push({name: 'customized2',
+                  engine: SupportedRuleEngine.tagExistence,
                   param: {root: '', tag:'foo'}});
-ruleOptions.push({name: 'customized3', engine: SupportedRuleEngine.tagExistenceWithAttrValue,
+ruleOptions.push({name: 'customized3',
+                  engine: SupportedRuleEngine.tagExistenceWithAttrValue,
                   param: {root: '', tag:'foo', attr:'name', value:'seo'}});
-ruleOptions.push({name: 'customized4', engine: SupportedRuleEngine.tagLimitCount,
+ruleOptions.push({name: 'customized4',
+                  engine: SupportedRuleEngine.tagLimitCount,
                   param: {root: '', tag:'foo', limit:1}});
-ruleOptions.push({name: 'customized5', engine: 'bbb',
-                  param: {root: '', tag:'foo'}});
 
 // customized rule with customized rule engine
 ruleOptions.push({name: 'customizedRuleEngine', ruleFn : $ => {
@@ -65,6 +78,21 @@ Node.js 8.9.1 or greater
 6. Detect if there are more than 15 `<strong>` tag in HTML <br />
 7. Detect if a HTML have more than one `<h1>` tag<br />
 
+### Supported rule format
+```js
+ruleOption = {
+    name: 'defaultRuleName', // for default rule usage.
+    engine: 'supportedRuleEngine', // for customized rule usage
+    param: {
+        root: 'head',
+        tag: 'meta',
+        attr: 'name',
+        value: 'descriptions',
+        limit: 0;
+    },
+    ruleFn: $ => {} // for new rule engine usage.
+}
+```
 
 ### Default rule option
 ```js
@@ -82,7 +110,10 @@ const { DefaultRule } = require('seo-detector-demo');
 
 var ruleOptions = [];
 for (var i in DefaultRule) {
-  ruleOptions.push(DefaultRule[i]);
+  var index = Object.keys(DefaultRule).indexOf(i);
+  if (index >= 0) {
+    ruleOptions.push({name: i});
+  }
 }
 ```
 
@@ -98,13 +129,17 @@ const { SupportedRuleEngine } = require('seo-detector-demo');
  */
 
 var ruleOptions = [];
-ruleOptions.push({name: 'customized1', engine: SupportedRuleEngine.tagWithoutAttrCount,
+ruleOptions.push({name: 'customized1',
+                  engine: SupportedRuleEngine.tagWithoutAttrCount,
                   param: {root: '', tag:'foo', attr:'123'}});
-ruleOptions.push({name: 'customized2', engine: SupportedRuleEngine.tagExistence,
+ruleOptions.push({name: 'customized2',
+                  engine: SupportedRuleEngine.tagExistence,
                   param: {root: '', tag:'foo'}});
-ruleOptions.push({name: 'customized3', engine: SupportedRuleEngine.tagExistenceWithAttrValue,
+ruleOptions.push({name: 'customized3',
+                  engine: SupportedRuleEngine.tagExistenceWithAttrValue,
                   param: {root: '', tag:'foo', attr:'name', value:'seo'}});
-ruleOptions.push({name: 'customized4', engine: SupportedRuleEngine.tagLimitCount,
+ruleOptions.push({name: 'customized4',
+                  engine: SupportedRuleEngine.tagLimitCount,
                   param: {root: '', tag:'foo', limit:1}});
 ```
 
@@ -151,7 +186,7 @@ const seoDetector = new detector(inputOption, outputOption, ruleOptions);
 // skip pre-defined rules if it doesn't add into ruleOptions
 ```
 
-#### detect() && writeResult()
+#### Detect && WriteResult
 ```js
 seoDetector
   .detect()
