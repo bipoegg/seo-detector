@@ -21,7 +21,16 @@ describe('Rule class', function () {
   it('ruleFn will be null when rule engine is not support', function () {
     var ruleOption = {
       name: null,
-      engine: 'not_support',
+      engine: 'not_support'
+    };
+    var rule = new Rule(ruleOption);
+    assert.isNull(rule.ruleFn);
+  });
+
+  it('ruleFn will be null when rule engine parameter not assign', function () {
+    var ruleOption = {
+      name: null,
+      engine: 'tagExistence'
     };
     var rule = new Rule(ruleOption);
     assert.isNull(rule.ruleFn);
